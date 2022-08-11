@@ -13,9 +13,16 @@ body {
   margin: 0;
 }
 
+.title {
+  font-family: "Sofia", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 5rem;
+}
+
 .board {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: center;
@@ -137,8 +144,8 @@ body {
 
 .winning-message button {
   font-size: 2rem;
-  background-color: aqua;
-  border: 1px solid aqua;
+  background-color: #ffd45c;
+  border: 1px solid #ffd45c;
   color: white;
   border-radius: 20px;
   padding: 0.25em 0.5em;
@@ -146,7 +153,7 @@ body {
 
 .winning-message button:hover {
   background-color: white;
-  color: aqua;
+  color: #ffd45c;
   border: 1px solid white;
 }
 

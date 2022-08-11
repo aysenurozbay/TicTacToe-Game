@@ -22,16 +22,17 @@ let circleTurn;
 
 StartGame();
 
-restartButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", StartGame);
 
 function StartGame() {
   circleTurn = false;
   cellElements.forEach((cell) => {
-    board.classList.remove(X_CLASS);
-    board.classList.remove(CIRCLE_CLASS);
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
     cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
   });
+
   setBoardHower();
 
   winningMessageElement.classList.remove("show");
@@ -42,8 +43,6 @@ function handleClick(e) {
   const cell = e.target;
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
   placeMark(cell, currentClass);
-  // todo: checkForWin
-
   if (checkForWin(currentClass)) {
     endGame(false);
   } else if (isDraw()) {
@@ -95,7 +94,7 @@ function endGame(draw) {
 function isDraw() {
   return [...cellElements].every((cell) => {
     return (
-      cell.classList.contaions(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
+      cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
     );
   });
 }
